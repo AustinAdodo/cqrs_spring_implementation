@@ -13,6 +13,13 @@ public class Product {
     private String name;
     private double price;
 
-    // Constructors, getters, and setters
+    public Product(String name, double price) {
+        this.name = name;
+        this.price=price;
+    }
+
+    public Product() {
+
+    }
 }
 
