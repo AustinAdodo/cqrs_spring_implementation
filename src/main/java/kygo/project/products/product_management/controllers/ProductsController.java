@@ -1,5 +1,6 @@
 package kygo.project.products.product_management.controllers;
 
+import kygo.project.products.product_management.classes.GetProductQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
