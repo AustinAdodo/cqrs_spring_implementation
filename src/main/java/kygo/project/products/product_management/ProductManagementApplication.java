@@ -6,11 +6,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import java.util.List;
 
 /**
- * I added the @EnableJpaRepositories annotation to enable Spring Data JPA repositories to ensure
+ * The @EnableJpaRepositories annotation exists to enable Spring Data JPA repositories to ensure
  * @see <a href="https://example.com/docs">Official Documentation</a> or {@link #}
  */
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = "")
+@EnableJpaRepositories(basePackages = "kygo.project.products.product_management")
 public class ProductManagementApplication {
 
     public static void main(String[] args) {

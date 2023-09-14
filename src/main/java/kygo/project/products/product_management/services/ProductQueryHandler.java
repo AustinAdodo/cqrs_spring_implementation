@@ -1,6 +1,8 @@
 package kygo.project.products.product_management.services;
 
 import kygo.project.products.product_management.classes.GetProductQuery;
+import kygo.project.products.product_management.models.Product;
+import kygo.project.products.product_management.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
