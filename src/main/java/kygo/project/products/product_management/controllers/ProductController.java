@@ -10,6 +10,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Note: Spring's dependency injection container will manage the lifecycle of the ProductService and automatically
+ * inject the ProductRepository into it.
+ * @see <a href="https://example.com/docs">Official Documentation</a> or {@link #}
+ */
 @RestController
 @RequestMapping("/products")
 public class ProductController {
