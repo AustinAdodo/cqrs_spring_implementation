@@ -2,6 +2,7 @@ package kygo.project.products.product_management.controllers;
 
 import kygo.project.products.product_management.classes.CreateProductCommand;
 import kygo.project.products.product_management.classes.GetProductQuery;
+import kygo.project.products.product_management.classes.Mediator;
 import kygo.project.products.product_management.models.Product;
 import kygo.project.products.product_management.services.ProductCommandHandler;
 import kygo.project.products.product_management.services.ProductQueryHandler;
@@ -20,11 +21,13 @@ import org.springframework.web.bind.annotation.*;
 public class ProductController {
     private final ProductCommandHandler commandHandler;
     private final ProductQueryHandler queryHandler;
+    private final Mediator mediator;
 
     @Autowired
-    public ProductController(ProductCommandHandler commandHandler, ProductQueryHandler queryHandler) {
+    public ProductController(ProductCommandHandler commandHandler, ProductQueryHandler queryHandler, Mediator mediator) {
         this.commandHandler = commandHandler;
         this.queryHandler = queryHandler;
+        this.mediator = mediator;
     }
 
     @PostMapping
@@ -38,6 +41,24 @@ public class ProductController {
         GetProductQuery query = new GetProductQuery();
         query.setProductId(productId);
         Product product = queryHandler.handle(query);
+        if (product != null) {
+            return ResponseEntity.ok(product);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<Void> createProduct_with_med(@RequestBody CreateProductRequest request) {
+        CreateProductCommand createCommand = new CreateProductCommand(request);
+        mediator.send(createCommand);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @GetMapping("/{productId}")
+    public ResponseEntity<Product> getProduct_with_med(@PathVariable Long productId) {
+        GetProductQuery getProductQuery = new GetProductQuery(productId);
+        Product product = mediator.send(getProductQuery);
         if (product != null) {
             return ResponseEntity.ok(product);
         } else {

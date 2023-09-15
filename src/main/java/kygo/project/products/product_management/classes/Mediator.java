@@ -1,5 +1,6 @@
 package kygo.project.products.product_management.classes;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Map;
  * @see <a href="https://example.com/docs">Official Documentation</a> or {@link #}
  */
 public class Mediator {
-    private final Map<Class<?>, Object> handlers = new HashMap<>();
+    private final HashMap<Class<?>, Object> handlers = new HashMap<>();
 
     public void registerHandler(Class<?> messageType, Object handler) {
         handlers.put(messageType, handler);

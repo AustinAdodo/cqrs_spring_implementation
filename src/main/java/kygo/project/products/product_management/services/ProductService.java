@@ -1,5 +1,6 @@
 package kygo.project.products.product_management.services;
 
+import kygo.project.products.product_management.classes.Mediator;
 import kygo.project.products.product_management.models.Product;
 import kygo.project.products.product_management.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,12 @@ import java.util.List;
 @Service
 public class ProductService {
     private final ProductRepository productRepository;
+    private final Mediator mediator;
 
     @Autowired
-    public ProductService(ProductRepository productRepository) {
+    public ProductService(ProductRepository productRepository,Mediator mediator) {
         this.productRepository = productRepository;
+        this.mediator = mediator;
     }
 
     public List<Product> getAllProducts() {
@@ -30,6 +33,16 @@ public class ProductService {
 
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
+    }
+
+    public void createProduct_with_med(CreateProductRequest request) {
+        CreateProductCommand createCommand = new CreateProductCommand(request);
+        mediator.send(createCommand);
+    }
+
+    public Product getProduct_with_med(Long productId) {
+        GetProductQuery getProductQuery = new GetProductQuery(productId);
+        return mediator.send(getProductQuery);
     }
 }
 
