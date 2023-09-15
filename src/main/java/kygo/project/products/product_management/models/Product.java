@@ -3,6 +3,10 @@ package kygo.project.products.product_management.models;
 import jakarta.persistence.*;
 
 
+/**
+ * Primary Product class
+ * @see <a href="https://example.com/docs">Official Documentation</a> or {@link #}
+ */
 @Entity
 @Table(name = "products")
 public class Product {
