@@ -1,5 +1,7 @@
 package kygo.project.products.product_management;
 
+import kygo.project.products.product_management.classes.CreateProductCommand;
+import kygo.project.products.product_management.classes.GetProductQuery;
 import kygo.project.products.product_management.classes.Mediator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

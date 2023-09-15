@@ -1,5 +1,7 @@
 package kygo.project.products.product_management.services;
 
+import kygo.project.products.product_management.classes.CreateProductCommand;
+import kygo.project.products.product_management.classes.GetProductQuery;
 import kygo.project.products.product_management.classes.Mediator;
 import kygo.project.products.product_management.models.Product;
 import kygo.project.products.product_management.repositories.ProductRepository;
@@ -35,7 +37,7 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-    public void createProduct_with_med(CreateProductRequest request) {
+    public void createProduct_with_med(Product request) {
         CreateProductCommand createCommand = new CreateProductCommand(request);
         mediator.send(createCommand);
     }

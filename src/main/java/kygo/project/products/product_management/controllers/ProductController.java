@@ -49,7 +49,7 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Void> createProduct_with_med(@RequestBody CreateProductRequest request) {
+    public ResponseEntity<Void> createProduct_with_med(@RequestBody Product request) {
         CreateProductCommand createCommand = new CreateProductCommand(request);
         mediator.send(createCommand);
         return ResponseEntity.status(HttpStatus.CREATED).build();
