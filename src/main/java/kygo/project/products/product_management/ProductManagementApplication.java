@@ -6,9 +6,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 /**
- * NB: Ensure that your Spring Boot application class (the class with @SpringBootApplication annotation) or your
- * Spring application configuration class scans the package containing your ProductRepository, ProductService,
- * and other Spring components. You can do this by using the @ComponentScan annotation
+ * App Entry Point.
+ * NB: The  @SpringBootApplication annotation ensures the Spring application configuration class scans the package
+ * containing your ProductRepository, ProductService,and other Spring components.
+ * You can also do this by using the @ComponentScan annotation.
  * The @EnableJpaRepositories annotation exists to enable Spring Data JPA repositories ensure CQRS
  * @see <a href="https://example.com/docs">Official Documentation</a> or {@link #}
  */
