@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import java.util.List;
 
 /**
- * The @EnableJpaRepositories annotation exists to enable Spring Data JPA repositories to ensure
+ * The @EnableJpaRepositories annotation exists to enable Spring Data JPA repositories ensure CQRS
  * @see <a href="https://example.com/docs">Official Documentation</a> or {@link #}
  */
 @SpringBootApplication
