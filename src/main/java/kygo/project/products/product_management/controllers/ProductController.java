@@ -38,7 +38,7 @@ public class ProductController {
 
     @GetMapping("/{productId}")
     public ResponseEntity<Product> getProduct(@PathVariable Long productId) {
-        GetProductQuery query = new GetProductQuery();
+        GetProductQuery query = new GetProductQuery(productId);
         query.setProductId(productId);
         Product product = queryHandler.handle(query);
         if (product != null) {
