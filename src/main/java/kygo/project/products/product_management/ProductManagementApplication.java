@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 /**
- * App Entry Point.
+ * App Entry Point.<br>
  * NB: The  @SpringBootApplication annotation ensures the Spring application configuration class scans the package
  * containing your ProductRepository, ProductService,and other Spring components.
  * You can also do this by using the @ComponentScan annotation.
